@@ -1,0 +1,1 @@
+scoreboard objectives add saturn.unlimited_void_id dummy

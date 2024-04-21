@@ -1,0 +1,63 @@
+{
+    "name":"§6§nCursed Technique",
+    "description":"Lapse Blue. The strengthened Limitless increases cursed energy to bring the concepts of \"negative numbers\" and \"negative distance\" into reality. Doing so forces the area to fill in the negative space by drawing everything toward the impossibility, generating a force of attraction, similar to a black hole. §f[Load Toolbar Activator]",
+    "badges": [
+      {
+         "type": "origins:tooltip",
+         "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_circle.png",
+         "text": "Pulls entities within a 15 block radius into the casted area, dealing 2.5 hearts per 2 seconds for a total of 8 seconds."
+     }
+    ],
+    "type":"origins:active_self",
+    "entity_action":{
+       "type":"origins:and",
+       "actions":[
+          {
+             "type":"origins:raycast",
+             "distance":16,
+             "block":true,
+             "entity":false,
+             "shape_type":"collider",
+             "fluid_handling":"any",
+             "block_action":{
+                "type":"origins:and",
+                "actions":[
+                   {
+                      "type":"origins:execute_command",
+                      "command":"summon minecraft:armor_stand ~ ~ ~ {NoGravity:1b,Invisible:1b,Invulnerable:1b,Marker:1b,ArmorItems:[{},{},{},{id:\"player_head\",Count:1b,tag:{SkullOwner:{Id:[I;-867594749,1104694987,-1959684270,-749347583],Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGFmMWJiY2ZmMDJjYzZlZjY1ZTI0OGEwNDI0YzUxZDMzNDg5MDNkNzk3N2JiOGFkMzVkOTQyNzU3Y2Q1YzdiZiJ9fX0=\"}]}}}}],HandItems:[{},{}],Tags:[\"lapse_blue.summon\"],DisabledSlots:4144959}"
+                   },
+                   {
+                      "type":"origins:area_of_effect",
+                      "block_action":{
+                         "type":"origins:execute_command",
+                         "command":"power grant @e[type=minecraft:armor_stand,tag=lapse_blue.summon,sort=nearest] saturn:cursed_technique_lapse_blue"
+                      },
+                      "radius":3,
+                      "shape":"cube"
+                   }
+                ]
+             },
+             "miss_action":{
+                "type":"origins:execute_command",
+                "command":"title @s actionbar {\"text\":\"You can't cast a blackhole there\",\"bold\":true,\"color\":\"red\"}"
+             }
+          },
+          {
+             "type":"origins:play_sound",
+             "sound":"minecraft:ambient.basalt_deltas.mood",
+             "volume":1.00,
+             "pitch":1.60
+          }
+       ]
+    },
+    "cooldown":700,
+    "hud_render":{
+       "should_render":true,
+       "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+       "bar_index":19
+    },
+    "key":{
+       "key":"key.loadToolbarActivator",
+       "continuous":false
+    }
+}

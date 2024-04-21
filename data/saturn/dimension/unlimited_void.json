@@ -1,0 +1,22 @@
+{
+  "type": "saturn:unlimited_void",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:the_void",
+      "lakes": false,
+      "features": false,
+      "layers": [
+        {
+          "block": "minecraft:barrier",
+          "height": 1
+        },
+        {
+          "block": "minecraft:air",
+          "height": 255
+        }
+      ],
+      "structure_overrides": []
+    }
+  }
+}

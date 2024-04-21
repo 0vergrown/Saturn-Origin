@@ -1,0 +1,26 @@
+{
+    "name": "§cPsychotic Break",
+    "description": "Losing half or more of your health messes with your God Complex and you begin doubting your abilities. (Slower and Weaker)",
+    "type": "origins:conditioned_attribute",
+    "modifiers": [
+        {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": -0.045,
+            "name": "Decreased Movement Speed"
+        },
+        {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "multiply_total",
+            "value": -0.5,
+            "name": "Decreased Damage Dealt"
+        }
+    ],
+    "tick_rate": 20,
+    "update_health": false,
+    "condition": {
+        "type": "origins:health",
+        "comparison": "<=",
+        "compare_to": 8
+    }
+}

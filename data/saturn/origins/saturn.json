@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"saturn:limitless",
+		"saturn:black_flash",
+		"saturn:cursed_technique",
+		"saturn:unlimited_void",
+		"saturn:gravity_manipulation",
+		"saturn:god_complex",
+		"saturn:shell_shock",
+		"saturn:psychotic_break",
+		"saturn:frail"
+	],
+	"icon": "minecraft:structure_void",
+	"order": 10,
+	"impact": 3,
+	"name": "Saturn",
+	"description": "A deity born with both the limitless and six eyes, his overwhelming power forming a god complex and suffers because of it."
+}

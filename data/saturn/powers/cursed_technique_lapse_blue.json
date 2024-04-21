@@ -1,0 +1,119 @@
+{
+   "type":"origins:action_over_time",
+   "entity_action":{
+      "type":"origins:and",
+      "actions":[
+         {
+            "type":"origins:execute_command",
+            "command":"tp @s ~ ~ ~ ~15 ~"
+         },
+         {
+            "type":"origins:execute_command",
+            "command":"tp @e[tag=!saturn,type=!minecraft:item,distance=0..15] @s"
+         },
+         {
+            "type":"origins:execute_command",
+            "command":"particle minecraft:dust_color_transition 0.196 0 0.91 1 0 0 0 ~ ~2 ~ .35 .35 .35 0 12 force @a"
+         },
+         {
+            "type":"origins:execute_command",
+            "command":"particle minecraft:soul_fire_flame ~ ~2 ~ .22 .22 .22 .45 1 force @a"
+         },
+         {
+            "type":"origins:execute_command",
+            "command":"particle minecraft:nautilus ~ ~3 ~ 0 0 0 15 50 force @a"
+         },
+         {
+            "type":"origins:execute_command",
+            "command":"particle minecraft:nautilus ~ ~3 ~ 0 0 0 5 5 force @a"
+         },
+         {
+            "type":"origins:area_of_effect",
+            "radius":15,
+            "bientity_action":{
+               "type":"origins:target_action",
+               "action":{
+                  "type":"origins:and",
+                  "actions":[
+                     {
+                        "type": "origins:grant_power",
+                        "power": "saturn:cursed_technique_mob_hurt",
+                        "source": "saturn:cursed_technique_mob_hurt"
+                     },
+                     {
+                        "type":"origins:delay",
+                        "ticks":160,
+                        "action":{
+                           "type": "origins:revoke_power",
+                           "power": "saturn:cursed_technique_mob_hurt",
+                           "source": "saturn:cursed_technique_mob_hurt"
+                        }
+                     },
+                     {
+                        "type":"origins:spawn_particles",
+                        "particle":{
+                           "type":"minecraft:dust_color_transition",
+                           "params":"0.196 0 0.91 1 0 0 0"
+                        },
+                        "count":12,
+                        "speed":0,
+                        "force":true,
+                        "spread":{
+                           "x":0.3,
+                           "y":0.3,
+                           "z":0.3
+                        },
+                        "offset_y":0.5
+                     }
+                  ]
+               }
+            },
+            "bientity_condition":{
+               "type":"origins:target_condition",
+               "condition":{
+                  "type":"origins:and",
+                  "conditions":[
+                     {
+                        "type":"origins:living"
+                     },
+                     {
+                        "type":"origins:origin",
+                        "origin":"saturn:saturn",
+                        "layer":"origins:origin",
+                        "inverted":true
+                     }
+                  ]
+               }
+            },
+            "include_target":false
+         }
+      ]
+   },
+   "rising_action":{
+      "type":"origins:and",
+      "actions":[
+         {
+            "type":"origins:explode",
+            "power":5,
+            "destruction_type":"break",
+            "damage_self":false,
+            "create_fire":false
+         },
+         {
+            "type":"origins:play_sound",
+            "sound":"minecraft:entity.warden.sonic_boom",
+            "volume":1.00,
+            "pitch":0.50
+         },
+         {
+            "type":"origins:delay",
+            "ticks":160,
+            "action":{
+               "type":"origins:execute_command",
+               "command":"kill @s"
+            }
+         }
+      ]
+   },
+   "interval":1
+}

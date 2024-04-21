@@ -1,0 +1,21 @@
+{
+    "hidden": true,
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:damage",
+                "amount": 5,
+                "damage_type": "minecraft:player_attack"
+            },
+            {    
+                "type": "origins:play_sound",
+                "sound": "minecraft:item.trident.thunder",
+                "volume": 1.00,
+                "pitch": 0.70
+            }
+        ]
+    },
+    "interval": 60
+}

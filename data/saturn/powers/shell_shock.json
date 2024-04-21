@@ -1,0 +1,40 @@
+{
+    "name": "§cShell Shock",
+    "description": "Due to your ability to use powerful cursed techniques and manipulate matter at will, you aren't used to anyone being able to hurt you, making you sometimes panic when it happens. (30% chance of getting Slowness X and Blindness X for three seconds on hit.)",
+    "type": "origins:self_action_when_hit",
+    "entity_action": {
+        "type": "origins:chance",
+        "action": {
+            "type": "origins:apply_effect",
+            "effects": [
+                {
+                    "effect": "minecraft:slowness",
+                    "duration": 60,
+                    "amplifier": 9,
+                    "is_ambient": false,
+                    "show_particles": false,
+                    "show_icon": true
+                },
+                {
+                    "effect": "minecraft:blindness",
+                    "duration": 60,
+                    "amplifier": 9,
+                    "is_ambient": false,
+                    "show_particles": false,
+                    "show_icon": true
+                }
+            ]
+        },
+        "chance": 0.3
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "damage_condition": {
+        "type": "origins:attacker",
+        "entity_condition": {
+            "type": "origins:living"
+        }
+    }
+}
