@@ -1,55 +1,55 @@
 {
-	"name":"§6§nLimitless",
-	"description":"The Limitless technique operates the same way convergent and divergent sequences do in mathematics. The Infinity is the convergence of an immeasurable series, anything that approaches the infinity slows down and never reaches the user. This is because the technique takes the finite amount of space between the two subjects and divides it an infinite amount of times. (Destroys any and all projectiles, including tridents.)",
-	"type":"origins:action_over_time",
-	"entity_action":{
-	   "type":"origins:area_of_effect",
-	   "radius":5,
-	   "bientity_action":{
-		  "type":"origins:target_action",
-		  "action":{
-			 "type":"origins:and",
-			 "actions":[
-				{
-				   "type":"origins:spawn_particles",
-				   "particle":"minecraft:firework",
-				   "count":10,
-				   "speed":0.18,
-				   "force":true,
-				   "spread":{
-					  "x":0.2,
-					  "y":0.2,
-					  "z":0.2
-				   },
-				   "offset_y":0.5
-				},
-				{
-				   "type":"origins:execute_command",
-				   "command":"kill @s"
-				},
-				{
-				   "type":"origins:play_sound",
-				   "sound":"minecraft:block.enchantment_table.use",
-				   "volume":0.6,
-				   "pitch":2.0
-				}
-			 ]
-		  }
-	   },
-	   "bientity_condition":{
-		  "type":"origins:target_condition",
-		  "condition":{
-			 "type":"origins:in_tag",
-			 "tag":"saturn:limitless"
-		  }
-	   },
-	   "include_target":false
-	},
-	"interval":1,
-	"condition": {
-        "type": "origins:health",
-        "comparison": "<=",
-        "compare_to": 8,
-		"inverted": true
-    }
+   "name":"§6§nLimitless",
+   "description":"The Limitless technique operates the same way convergent and divergent sequences do in mathematics. The Infinity is the convergence of an immeasurable series, anything that approaches the infinity slows down and never reaches the user. This is because the technique takes the finite amount of space between the two subjects and divides it an infinite amount of times. (Destroys any and all projectiles, including tridents.)",
+   "type":"origins:action_over_time",
+   "entity_action":{
+      "type":"origins:area_of_effect",
+      "radius":5,
+      "bientity_action":{
+         "type":"origins:target_action",
+         "action":{
+            "type":"origins:and",
+            "actions":[
+               {
+                  "type":"origins:spawn_particles",
+                  "particle":"minecraft:firework",
+                  "count":10,
+                  "speed":0.18,
+                  "force":true,
+                  "spread":{
+                     "x":0.2,
+                     "y":0.2,
+                     "z":0.2
+                  },
+                  "offset_y":0.5
+               },
+               {
+                  "type":"origins:execute_command",
+                  "command":"kill @s"
+               },
+               {
+                  "type":"origins:play_sound",
+                  "sound":"minecraft:block.enchantment_table.use",
+                  "volume":0.6,
+                  "pitch":2.0
+               }
+            ]
+         }
+      },
+      "bientity_condition":{
+         "type":"origins:target_condition",
+         "condition":{
+            "type":"origins:in_tag",
+            "tag":"saturn:limitless"
+         }
+      },
+      "include_target":false
+   },
+   "interval":1,
+   "condition":{
+      "type":"origins:health",
+      "comparison":"<=",
+      "compare_to":8,
+      "inverted":true
+   }
 }
