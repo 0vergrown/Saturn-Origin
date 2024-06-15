@@ -51,12 +51,6 @@
                   "command":"function saturn:unlimited_void_leave"
                },
                {
-                  "type":"origins:change_resource",
-                  "resource":"saturn:unlimited_void_resource",
-                  "change":0,
-                  "operation":"set"
-               },
-               {
                   "type":"origins:play_sound",
                   "sound":"minecraft:block.beacon.power_select",
                   "volume":1.00,
@@ -83,12 +77,6 @@
                   "type":"origins:spawn_entity",
                   "entity_type":"minecraft:armor_stand",
                   "tag":"{Invisible:1b,Invulnerable:1b,NoGravity:1b,Small:1b,Marker:1b,Tags:[\"saturn.unlimited_void_active\",\"saturn.unlimited_void_new\"],DisabledSlots:4144959}"
-               },
-               {
-                  "type":"origins:change_resource",
-                  "resource":"saturn:unlimited_void_resource",
-                  "change":1,
-                  "operation":"add"
                },
                {
                   "type":"origins:raycast",
