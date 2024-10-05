@@ -113,30 +113,6 @@
              {
                 "type":"origins:on_block",
                 "inverted":true
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_head_resource",
-                "comparison":"==",
-                "compare_to":0
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_chest_resource",
-                "comparison":"==",
-                "compare_to":0
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_legs_resource",
-                "comparison":"==",
-                "compare_to":0
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_feet_resource",
-                "comparison":"==",
-                "compare_to":0
              }
           ]
        }
@@ -181,30 +157,6 @@
              {
                 "type":"origins:on_block",
                 "inverted":true
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_head_resource",
-                "comparison":"==",
-                "compare_to":0
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_chest_resource",
-                "comparison":"==",
-                "compare_to":0
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_legs_resource",
-                "comparison":"==",
-                "compare_to":0
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_feet_resource",
-                "comparison":"==",
-                "compare_to":0
              }
           ]
        }
@@ -287,30 +239,6 @@
              {
                 "type":"origins:sneaking",
                 "inverted":true
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_head_resource",
-                "comparison":"==",
-                "compare_to":0
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_chest_resource",
-                "comparison":"==",
-                "compare_to":0
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_legs_resource",
-                "comparison":"==",
-                "compare_to":0
-             },
-             {
-                "type":"origins:resource",
-                "resource":"saturn:frail_feet_resource",
-                "comparison":"==",
-                "compare_to":0
              }
           ]
        }
@@ -372,35 +300,6 @@
              {
                 "type":"origins:sneaking",
                 "inverted":true
-             },
-             {
-                "type":"origins:or",
-                "conditions":[
-                   {
-                      "type":"origins:resource",
-                      "resource":"saturn:frail_head_resource",
-                      "comparison":"==",
-                      "compare_to":1
-                   },
-                   {
-                      "type":"origins:resource",
-                      "resource":"saturn:frail_chest_resource",
-                      "comparison":"==",
-                      "compare_to":1
-                   },
-                   {
-                      "type":"origins:resource",
-                      "resource":"saturn:frail_legs_resource",
-                      "comparison":"==",
-                      "compare_to":1
-                   },
-                   {
-                      "type":"origins:resource",
-                      "resource":"saturn:frail_feet_resource",
-                      "comparison":"==",
-                      "compare_to":1
-                   }
-                ]
              }
           ]
        }

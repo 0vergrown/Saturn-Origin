@@ -122,8 +122,7 @@
                            "x":0.00,
                            "y":1.00,
                            "z":0.00,
-                           "client":true,
-                           "server":true,
+                           "reference": "position",
                            "set":false
                         },
                         {
@@ -157,10 +156,10 @@
                                  {
                                     "type":"origins:apply_effect",
                                     "effect":{
-                                       "effect":"minecraft:slow_falling",
+                                       "id":"minecraft:slow_falling",
                                        "duration":60,
                                        "amplifier":0,
-                                       "is_ambient":false,
+                                       "ambient":false,
                                        "show_particles":false,
                                        "show_icon":false
                                     }
@@ -173,7 +172,7 @@
                   "block_action":{
                      "type": "origins:explode",
                      "power": 1,
-                     "destruction_type": "none",
+                     "destruction_type": "keep",
                      "create_fire": false
                   },
                   "hit_action":{
@@ -263,8 +262,7 @@
                                     "x":0.00,
                                     "y":-5.00,
                                     "z":0.00,
-                                    "client":true,
-                                    "server":true,
+                                    "space": "local",
                                     "set":false
                                  },
                                  {
@@ -326,10 +324,10 @@
                         {
                            "type":"origins:apply_effect",
                            "effect":{
-                              "effect":"minecraft:slow_falling",
+                              "id":"minecraft:slow_falling",
                               "duration":60,
                               "amplifier":0,
-                              "is_ambient":false,
+                              "ambient":false,
                               "show_particles":false,
                               "show_icon":false
                            }
@@ -481,7 +479,7 @@
          "continuous":false
       },
       "condition":{
-         "type":"origins:or",
+         "type":"origins:any_of",
          "conditions":[
             {
                "type":"origins:resource",
@@ -490,7 +488,7 @@
                "compare_to":200
             },
             {
-               "type":"origins:and",
+               "type":"origins:all_of",
                "conditions":[
                   {
                      "type":"origins:resource",

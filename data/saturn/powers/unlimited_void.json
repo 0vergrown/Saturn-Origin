@@ -2,53 +2,56 @@
    "name":"§6§nUnlimited Void",
    "description":"The Unlimited Void presents the target with limitless information, forcing them to see and feel everything while seeing and feeling nothing at the exact same time. This phenomenon paralyzes the target with infinite knowledge, causing them to die slowly. This domain heightens your abilities while active, after 30 seconds the target will be sent out of the domain however the caster can stay and leave as they please. (Slowness X, Blindness X, and Wither I to target for 15 seconds, Caster gains Strength I while in Unlimited Void.) §f[Save Toolbar Activator]",
    "type":"origins:multiple",
-   "give_id":{
-      "type":"origins:action_on_callback",
-      "entity_action_added":{
-         "type":"origins:and",
-         "actions":[
-            {
-               "type":"origins:execute_command",
-               "command":"scoreboard players add #saturn_fakeplayer saturn.unlimited_void_id 1"
-            },
-            {
-               "type":"origins:execute_command",
-               "command":"scoreboard players operation @s saturn.unlimited_void_id = #saturn_fakeplayer saturn.unlimited_void_id"
-            }
-         ]
+   "resource":{
+      "type":"origins:resource",
+      "min":0,
+      "max":1,
+      "hud_render":{
+         "should_render":false
       },
-      "execute_chosen_when_orb":true
+      "start_value":0
+   },
+   "set":{
+      "type":"origins:entity_set",
+      "action_on_remove":{
+         "type":"origins:target_action",
+         "action":{
+            "type":"origins:and",
+            "actions":[
+               {
+                  "type":"origins:execute_command",
+                  "command":"forceload remove ~ ~ ~ ~"
+               },
+               {
+                  "type":"origins:delay",
+                  "action":{
+                     "type":"origins:execute_command",
+                     "command":"kill @s"
+                  },
+                  "ticks":4
+               }
+            ]
+         }
+      }
    },
    "active":{
       "type":"origins:active_self",
       "entity_action":{
          "type":"origins:if_else",
          "condition":{
-            "type":"origins:and",
-            "conditions":[
-               {
-                  "type":"origins:dimension",
-                  "dimension":"saturn:unlimited_void",
-                  "inverted":false
-               },
-               {
-                  "type":"origins:command",
-                  "command":"function saturn:unlimited_void_checkid",
-                  "compare_to":0,
-                  "comparison":">"
-               },
-               {
-                  "type":"origins:nbt",
-                  "nbt":"{Tags:[\"saturn.unlimited_voidExists\"]}"
-               }
-            ]
+            "type":"origins:resource",
+            "resource":"saturn:unlimited_void_resource",
+            "comparison":"==",
+            "compare_to":1
          },
          "if_action":{
             "type":"origins:and",
             "actions":[
                {
-                  "type":"origins:execute_command",
-                  "command":"function saturn:unlimited_void_leave"
+                  "type":"origins:change_resource",
+                  "resource":"saturn:unlimited_void_resource",
+                  "change":0,
+                  "operation":"set"
                },
                {
                   "type":"origins:play_sound",
@@ -67,6 +70,56 @@
                   "sound":"minecraft:block.respawn_anchor.charge",
                   "volume":1.00,
                   "pitch":1.00
+               },
+               {
+                  "type":"origins:action_on_set",
+                  "set":"saturn:unlimited_void_set",
+                  "bientity_action":{
+                     "type":"origins:and",
+                     "actions":[
+                        {
+                           "type":"origins:actor_action",
+                           "action":{
+                              "type":"origins:and",
+                              "actions":[
+                                 {
+                                    "type":"origins:execute_command",
+                                    "command":"tag @s add saturn.unlimited_void_actor"
+                                 },
+                                 {
+                                    "type":"origins:delay",
+                                    "action":{
+                                       "type":"origins:execute_command",
+                                       "command":"tag @s remove saturn.unlimited_void_actor"
+                                    },
+                                    "ticks":2
+                                 }
+                              ]
+                           }
+                        },
+                        {
+                           "type":"origins:target_action",
+                           "action":{
+                              "type":"origins:delay",
+                              "action":{
+                                 "type":"origins:execute_command",
+                                 "command":"tp @e[tag=saturn.unlimited_void_actor,limit=1] @s"
+                              },
+                              "ticks":1
+                           }
+                        },
+                        {
+                           "type":"origins:delay",
+                           "action":{
+                              "type":"origins:remove_from_set",
+                              "set":"saturn:unlimited_void_set"
+                           },
+                           "ticks":3
+                        }
+                     ]
+                  },
+                  "limit":1,
+                  "reverse":false
                }
             ]
          },
@@ -74,9 +127,41 @@
             "type":"origins:and",
             "actions":[
                {
+                  "type":"origins:change_resource",
+                  "resource":"saturn:unlimited_void_resource",
+                  "change":1,
+                  "operation":"set"
+               },
+               {
+                  "type":"origins:play_sound",
+                  "sound":"minecraft:block.beacon.power_select",
+                  "volume":1.00,
+                  "pitch":1.00
+               },
+               {
+                  "type":"origins:play_sound",
+                  "sound":"minecraft:block.beacon.deactivate",
+                  "volume":1.00,
+                  "pitch":1.00
+               },
+               {
+                  "type":"origins:play_sound",
+                  "sound":"minecraft:block.respawn_anchor.charge",
+                  "volume":1.00,
+                  "pitch":1.00
+               },
+               {
                   "type":"origins:spawn_entity",
                   "entity_type":"minecraft:armor_stand",
-                  "tag":"{Invisible:1b,Invulnerable:1b,NoGravity:1b,Small:1b,Marker:1b,Tags:[\"saturn.unlimited_void_active\",\"saturn.unlimited_void_new\"],DisabledSlots:4144959}"
+                  "tag":"{NoGravity:1b,Invulnerable:1b,Small:1b,Marker:1b,Invisible:1b,DisabledSlots:4144959}",
+                  "entity_action":{
+                     "type":"origins:execute_command",
+                     "command":"forceload add ~ ~ ~ ~"
+                  },
+                  "bientity_action":{
+                     "type":"origins:add_to_set",
+                     "set":"saturn:unlimited_void_set"
+                  }
                },
                {
                   "type":"origins:raycast",
@@ -125,28 +210,6 @@
                   "entity_distance":16.0,
                   "command_step":1.0,
                   "command_along_ray_only_on_hit":false
-               },
-               {
-                  "type":"origins:execute_command",
-                  "command":"function saturn:unlimited_void_enter"
-               },
-               {
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:block.beacon.power_select",
-                  "volume":1.00,
-                  "pitch":1.00
-               },
-               {
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:block.beacon.deactivate",
-                  "volume":1.00,
-                  "pitch":1.00
-               },
-               {
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:block.respawn_anchor.charge",
-                  "volume":1.00,
-                  "pitch":1.00
                }
             ]
          }
@@ -162,6 +225,42 @@
          "continuous":false
       }
    },
+   "remove_gates_on_death":{
+      "type":"origins:action_on_death",
+      "bientity_action":{
+         "type":"origins:target_action",
+         "action":{
+            "type":"origins:and",
+            "actions":[
+               {
+                  "type":"origins:change_resource",
+                  "resource":"saturn:unlimited_void_resource",
+                  "change":0,
+                  "operation":"set"
+               },
+               {
+                  "type":"origins:action_on_set",
+                  "set":"saturn:unlimited_void_set",
+                  "bientity_action":{
+                     "type":"origins:remove_from_set",
+                     "set":"saturn:unlimited_void_set"
+                  },
+                  "limit":1,
+                  "reverse":false
+               }
+            ]
+         }
+      },
+      "bientity_condition":{
+         "type":"origins:target_condition",
+         "condition":{
+            "type":"origins:resource",
+            "resource":"saturn:unlimited_void_resource",
+            "comparison":"==",
+            "compare_to":1
+         }
+      }
+   },
    "in_unlimited_void_effects":{
       "type":"origins:action_over_time",
       "entity_action":{
@@ -174,19 +273,19 @@
                "speed":1.0,
                "force":true,
                "spread":{
-                  "x":8.0,
-                  "y":8.0,
-                  "z":8.0
+                  "x":8.00,
+                  "y":8.00,
+                  "z":8.00
                },
                "offset_y":0.5
             },
             {
                "type":"origins:apply_effect",
                "effect":{
-                  "effect":"minecraft:strength",
+                  "id":"minecraft:strength",
                   "duration":100,
                   "amplifier":0,
-                  "is_ambient":true,
+                  "ambient":true,
                   "show_particles":false,
                   "show_icon":true
                }

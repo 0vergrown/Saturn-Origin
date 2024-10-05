@@ -211,23 +211,8 @@
     },
     "interval":20,
     "condition":{
-       "type":"origins:and",
-       "conditions":[
-          {
-             "type":"origins:dimension",
-             "dimension":"saturn:unlimited_void",
-             "inverted":false
-          },
-          {
-             "type":"origins:command",
-             "command":"function saturn:unlimited_void_visitor_checkid",
-             "compare_to":0,
-             "comparison":">"
-          },
-          {
-             "type":"origins:nbt",
-             "nbt":"{Tags:[\"saturn.unlimited_void_visitorExists\"]}"
-          }
-       ]
+      "type":"origins:dimension",
+      "dimension":"saturn:unlimited_void",
+      "inverted":false
     }
 }
