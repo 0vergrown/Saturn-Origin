@@ -5,6 +5,7 @@
    "entity_action":{
       "type":"origins:area_of_effect",
       "radius":5,
+      "shape": "cube",
       "bientity_action":{
          "type":"origins:target_action",
          "action":{
@@ -21,7 +22,9 @@
                      "y":0.2,
                      "z":0.2
                   },
-                  "offset_y":0.5
+                  "offset_x":0.00,
+                  "offset_y":0.50,
+                  "offset_z":0.00
                },
                {
                   "type":"origins:execute_command",
@@ -30,8 +33,8 @@
                {
                   "type":"origins:play_sound",
                   "sound":"minecraft:block.enchantment_table.use",
-                  "volume":0.6,
-                  "pitch":2.0
+                  "volume":0.60,
+                  "pitch":2.00
                }
             ]
          }
@@ -40,10 +43,10 @@
          "type":"origins:target_condition",
          "condition":{
             "type":"origins:in_tag",
-            "tag":"saturn:limitless"
+            "tag":"minecraft:impact_projectiles"
          }
       },
-      "include_target":false
+      "include_actor":false
    },
    "interval":1,
    "condition":{

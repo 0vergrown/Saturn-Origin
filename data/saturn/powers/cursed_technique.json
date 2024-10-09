@@ -13,32 +13,63 @@
       "type":"origins:and",
       "actions":[
          {
-            "type":"origins:raycast",
-            "distance":16,
-            "block":true,
-            "entity":false,
-            "shape_type":"collider",
-            "fluid_handling":"any",
-            "block_action":{
-               "type": "origins:spawn_entity",
-               "entity_type": "minecraft:armor_stand",
-               "tag": "{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"lapse_blue.summon\"],DisabledSlots:4144959}",
-               "entity_action": {
-                  "type": "origins:grant_power",
-                  "power": "saturn:cursed_technique_lapse_blue",
-                  "source": "saturn:cursed_technique_lapse_blue"
-               }
-            },
-            "miss_action":{
+            "type":"origins:execute_command",
+            "command":"tag @s add saturn"
+         },
+         {
+            "type":"origins:delay",
+            "action":{
                "type":"origins:execute_command",
-               "command":"title @s actionbar {\"text\":\"You can't cast a blackhole there\",\"bold\":true,\"color\":\"red\"}"
-            }
+               "command":"tag @s remove saturn"
+            },
+            "ticks":160
          },
          {
             "type":"origins:play_sound",
             "sound":"minecraft:ambient.basalt_deltas.mood",
             "volume":1.00,
             "pitch":1.60
+         },
+         {
+            "type":"origins:raycast",
+            "distance":16.00,
+            "block":true,
+            "entity":false,
+            "shape_type":"collider",
+            "fluid_handling":"any",
+            "block_action":{
+               "type":"origins:offset",
+               "action":{
+                  "type":"origins:spawn_entity",
+                  "entity_type":"minecraft:armor_stand",
+                  "tag":"{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"lapse_blue.summon\"],DisabledSlots:4144959}",
+                  "entity_action":{
+                     "type":"origins:and",
+                     "actions":[
+                        {
+                           "type":"origins:grant_power",
+                           "power":"saturn:cursed_technique_lapse_blue",
+                           "source":"saturn:cursed_technique_lapse_blue"
+                        },
+                        {
+                           "type":"origins:delay",
+                           "action":{
+                              "type":"origins:execute_command",
+                              "command":"kill @s"
+                           },
+                           "ticks":160
+                        }
+                     ]
+                  }
+               },
+               "x":0,
+               "y":1,
+               "z":0
+            },
+            "miss_action":{
+               "type":"origins:execute_command",
+               "command":"title @s actionbar {\"text\":\"You can't cast a blackhole there\",\"bold\":true,\"color\":\"red\"}"
+            }
          }
       ]
    },

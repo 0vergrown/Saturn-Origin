@@ -72,7 +72,7 @@
                   "pitch":1.00
                },
                {
-                  "type":"origins:action_on_set",
+                  "type":"origins:action_on_entity_set",
                   "set":"saturn:unlimited_void_set",
                   "bientity_action":{
                      "type":"origins:and",
@@ -111,7 +111,7 @@
                         {
                            "type":"origins:delay",
                            "action":{
-                              "type":"origins:remove_from_set",
+                              "type":"origins:remove_from_entity_set",
                               "set":"saturn:unlimited_void_set"
                            },
                            "ticks":3
@@ -126,6 +126,10 @@
          "else_action":{
             "type":"origins:and",
             "actions":[
+               {
+                  "type": "origins:execute_command",
+                  "command": "execute in saturn:unlimited_void positioned as @s run teleport ~0.5 3 8.5"
+               },
                {
                   "type":"origins:change_resource",
                   "resource":"saturn:unlimited_void_resource",
@@ -159,57 +163,9 @@
                      "command":"forceload add ~ ~ ~ ~"
                   },
                   "bientity_action":{
-                     "type":"origins:add_to_set",
+                     "type":"origins:add_to_entity_set",
                      "set":"saturn:unlimited_void_set"
                   }
-               },
-               {
-                  "type":"origins:raycast",
-                  "distance":16,
-                  "block":false,
-                  "entity":true,
-                  "shape_type":"collider",
-                  "fluid_handling":"none",
-                  "space":"local",
-                  "bientity_condition":{
-                     "type":"origins:target_condition",
-                     "condition":{
-                        "type":"origins:living"
-                     }
-                  },
-                  "bientity_action":{
-                     "type":"origins:target_action",
-                     "action":{
-                        "type":"origins:and",
-                        "actions":[
-                           {
-                              "type":"origins:grant_power",
-                              "power":"saturn:unlimited_void_mob_effects",
-                              "source":"saturn:unlimited_void_mob_effects"
-                           },
-                           {
-                              "type":"origins:execute_command",
-                              "command":"scoreboard players add #saturn_visitor_fakeplayer saturn.unlimited_void_visitor_id 1"
-                           },
-                           {
-                              "type":"origins:execute_command",
-                              "command":"scoreboard players operation @s saturn.unlimited_void_visitor_id = #saturn_visitor_fakeplayer saturn.unlimited_void_visitor_id"
-                           },
-                           {
-                              "type":"origins:spawn_entity",
-                              "entity_type":"minecraft:armor_stand",
-                              "tag":"{Invisible:1b,Invulnerable:1b,NoGravity:1b,Small:1b,Marker:1b,Tags:[\"saturn.unlimited_void_visitor_active\",\"saturn.unlimited_void_visitor_new\"],DisabledSlots:4144959}"
-                           },
-                           {
-                              "type":"origins:execute_command",
-                              "command":"function saturn:unlimited_void_visitor_enter"
-                           }
-                        ]
-                     }
-                  },
-                  "entity_distance":16.0,
-                  "command_step":1.0,
-                  "command_along_ray_only_on_hit":false
                }
             ]
          }
@@ -239,10 +195,10 @@
                   "operation":"set"
                },
                {
-                  "type":"origins:action_on_set",
+                  "type":"origins:action_on_entity_set",
                   "set":"saturn:unlimited_void_set",
                   "bientity_action":{
-                     "type":"origins:remove_from_set",
+                     "type":"origins:remove_from_entity_set",
                      "set":"saturn:unlimited_void_set"
                   },
                   "limit":1,

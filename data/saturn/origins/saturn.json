@@ -10,7 +10,9 @@
 		"saturn:psychotic_break",
 		"saturn:frail"
 	],
-	"icon": "minecraft:structure_void",
+	"icon": {
+		"id":"minecraft:structure_void"
+	},
 	"order": 10,
 	"impact": 3,
 	"name": "Saturn",

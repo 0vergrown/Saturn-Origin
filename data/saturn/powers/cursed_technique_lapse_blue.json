@@ -5,50 +5,34 @@
       "actions":[
          {
             "type":"origins:execute_command",
-            "command":"tp @s ~ ~ ~ ~15 ~"
-         },
-         {
-            "type":"origins:execute_command",
-            "command":"tp @e[tag=!saturn,type=!minecraft:item,distance=0..15] @s"
-         },
-         {
-            "type":"origins:execute_command",
-            "command":"particle minecraft:dust_color_transition 0.196 0 0.91 1 0 0 0 ~ ~2 ~ .35 .35 .35 0 12 force @a"
-         },
-         {
-            "type":"origins:execute_command",
-            "command":"particle minecraft:soul_fire_flame ~ ~2 ~ .22 .22 .22 .45 1 force @a"
-         },
-         {
-            "type":"origins:execute_command",
-            "command":"particle minecraft:nautilus ~ ~3 ~ 0 0 0 15 50 force @a"
-         },
-         {
-            "type":"origins:execute_command",
-            "command":"particle minecraft:nautilus ~ ~3 ~ 0 0 0 5 5 force @a"
+            "command":"function saturn:cursed_technique_particle"
          },
          {
             "type":"origins:area_of_effect",
-            "radius":15,
-            "shape": "cube",
+            "radius":3.00,
+            "shape":"cube",
             "bientity_action":{
                "type":"origins:target_action",
                "action":{
                   "type":"origins:and",
                   "actions":[
                      {
-                        "type": "origins:grant_power",
-                        "power": "saturn:cursed_technique_mob_hurt",
-                        "source": "saturn:cursed_technique_mob_hurt"
+                        "type":"origins:execute_command",
+                        "command":"tp @n[tag=!saturn,type=!minecraft:item,distance=0..3] @s"
+                     },
+                     {
+                        "type":"origins:grant_power",
+                        "power":"saturn:cursed_technique_mob_hurt",
+                        "source":"saturn:cursed_technique_mob_hurt"
                      },
                      {
                         "type":"origins:delay",
                         "action":{
-                           "type": "origins:revoke_power",
-                           "power": "saturn:cursed_technique_mob_hurt",
-                           "source": "saturn:cursed_technique_mob_hurt"
+                           "type":"origins:revoke_power",
+                           "power":"saturn:cursed_technique_mob_hurt",
+                           "source":"saturn:cursed_technique_mob_hurt"
                         },
-                        "ticks":160
+                        "ticks":150
                      },
                      {
                         "type":"origins:spawn_particles",
@@ -64,7 +48,9 @@
                            "y":0.3,
                            "z":0.3
                         },
-                        "offset_y":0.5
+                        "offset_x":0.00,
+                        "offset_y":0.50,
+                        "offset_z":0.00
                      }
                   ]
                }
@@ -87,32 +73,6 @@
                }
             },
             "include_actor":false
-         }
-      ]
-   },
-   "rising_action":{
-      "type":"origins:and",
-      "actions":[
-         {
-            "type":"origins:explode",
-            "power":5,
-            "destruction_type":"destroy",
-            "damage_self":false,
-            "create_fire":false
-         },
-         {
-            "type":"origins:play_sound",
-            "sound":"minecraft:entity.warden.sonic_boom",
-            "volume":1.00,
-            "pitch":0.50
-         },
-         {
-            "type":"origins:delay",
-            "action":{
-               "type":"origins:execute_command",
-               "command":"kill @s"
-            },
-            "ticks":160
          }
       ]
    },

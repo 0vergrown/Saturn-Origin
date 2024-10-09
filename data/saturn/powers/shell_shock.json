@@ -4,22 +4,22 @@
     "type": "origins:self_action_when_hit",
     "entity_action": {
         "type": "origins:chance",
-        "action": {
+        "success_action": {
             "type": "origins:apply_effect",
             "effects": [
                 {
-                    "effect": "minecraft:slowness",
+                    "id": "minecraft:slowness",
                     "duration": 60,
                     "amplifier": 9,
-                    "is_ambient": false,
+                    "ambient": false,
                     "show_particles": false,
                     "show_icon": true
                 },
                 {
-                    "effect": "minecraft:blindness",
+                    "id": "minecraft:blindness",
                     "duration": 60,
                     "amplifier": 9,
-                    "is_ambient": false,
+                    "ambient": false,
                     "show_particles": false,
                     "show_icon": true
                 }

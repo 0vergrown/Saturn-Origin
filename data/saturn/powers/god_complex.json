@@ -3,8 +3,8 @@
 	"description": "Your overwhelming power created a god complex within you. You see others as lesser beings and often underestimate threats. (1.3 times more damage from all sources.)",
     "type": "origins:modify_damage_taken",
     "modifier":{
-        "operation":"multiply_base",
-        "value": 0.3,
-        "name": "More Damage From All Sources"
+        "operation":"multiply_base_additive",
+        "amount": 0.30,
+        "id": "saturn:more_damage_from_all_sources"
     }
 }

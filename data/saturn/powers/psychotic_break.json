@@ -5,15 +5,15 @@
     "modifiers": [
         {
             "attribute": "minecraft:generic.movement_speed",
-            "operation": "addition",
-            "value": -0.045,
-            "name": "Decreased Movement Speed"
+            "operation": "add_value",
+            "amount": -0.045,
+            "id": "saturn:decreased_movement_speed"
         },
         {
             "attribute": "minecraft:generic.attack_damage",
-            "operation": "multiply_total",
-            "value": -0.5,
-            "name": "Decreased Damage Dealt"
+            "operation": "add_multiplied_total",
+            "amount": -0.5,
+            "id": "saturn:decreased_damage_dealt"
         }
     ],
     "tick_rate": 20,

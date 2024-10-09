@@ -4,42 +4,42 @@
        "type":"origins:apply_effect",
        "effects":[
           {
-             "effect":"minecraft:slowness",
+             "id":"minecraft:slowness",
              "duration":15,
              "amplifier":9,
-             "is_ambient":false,
+             "ambient":false,
              "show_particles":false,
              "show_icon":true
           },
           {
-             "effect":"minecraft:blindness",
+             "id":"minecraft:blindness",
              "duration":15,
              "amplifier":9,
-             "is_ambient":false,
+             "ambient":false,
              "show_particles":false,
              "show_icon":true
           },
           {
-             "effect":"minecraft:jump_boost",
+             "id":"minecraft:jump_boost",
              "duration":15,
              "amplifier":250,
-             "is_ambient":false,
+             "ambient":false,
              "show_particles":false,
              "show_icon":true
           },
           {
-             "effect":"minecraft:glowing",
+             "id":"minecraft:glowing",
              "duration":15,
              "amplifier":0,
-             "is_ambient":false,
+             "ambient":false,
              "show_particles":false,
              "show_icon":true
           },
           {
-             "effect":"minecraft:wither",
+             "id":"minecraft:wither",
              "duration":15,
              "amplifier":0,
-             "is_ambient":false,
+             "ambient":false,
              "show_particles":false,
              "show_icon":true
           }
