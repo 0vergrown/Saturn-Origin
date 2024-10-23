@@ -18,7 +18,7 @@
                   "actions":[
                      {
                         "type":"origins:execute_command",
-                        "command":"tp @n[tag=!saturn,type=!minecraft:item,distance=0..3] @s"
+                        "command":"tp @n[tag=!saturn,type=!minecraft:item] @s"
                      },
                      {
                         "type":"origins:grant_power",

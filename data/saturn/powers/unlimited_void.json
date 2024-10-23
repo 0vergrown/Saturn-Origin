@@ -14,15 +14,18 @@
    "set":{
       "type":"origins:entity_set",
       "action_on_remove":{
-         "type":"origins:target_action",
-         "action":{
-            "type":"origins:and",
-            "actions":[
-               {
+         "type":"origins:and",
+         "actions":[
+            {
+               "type":"origins:actor_action",
+               "action":{
                   "type":"origins:execute_command",
-                  "command":"forceload remove ~ ~ ~ ~"
-               },
-               {
+                  "command":"forceload remove all"
+               }
+            },
+            {
+               "type":"origins:target_action",
+               "action":{
                   "type":"origins:delay",
                   "action":{
                      "type":"origins:execute_command",
@@ -30,8 +33,8 @@
                   },
                   "ticks":4
                }
-            ]
-         }
+            }
+         ]
       }
    },
    "active":{
@@ -129,7 +132,7 @@
                {
                   "type":"origins:spawn_entity",
                   "entity_type":"minecraft:armor_stand",
-                  "tag":"{NoGravity:1b,Invulnerable:1b,Small:1b,Marker:1b,Invisible:1b,DisabledSlots:4144959}",
+                  "tag":"{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,DisabledSlots:4144959}",
                   "entity_action":{
                      "type":"origins:execute_command",
                      "command":"forceload add ~ ~ ~ ~"
@@ -141,7 +144,7 @@
                },
                {
                   "type":"origins:raycast",
-                  "distance":3.00,
+                  "distance":5.00,
                   "block":false,
                   "entity":true,
                   "shape_type":"visual",
@@ -165,10 +168,39 @@
                            {
                               "type":"origins:delay",
                               "action":{
+                                 "type":"origins:spawn_entity",
+                                 "entity_type":"minecraft:armor_stand",
+                                 "tag":"{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,DisabledSlots:4144959}",
+                                 "entity_action":{
+                                    "type":"origins:if_else",
+                                    "condition":{
+                                       "type":"origins:command",
+                                       "command":"forceload query ~ ~",
+                                       "comparison":"==",
+                                       "compare_to":0
+                                    },
+                                    "if_action":{
+                                       "type":"origins:execute_command",
+                                       "command":"forceload add ~ ~ ~ ~"
+                                    },
+                                    "else_action":{
+                                       "type":"origins:nothing"
+                                    }
+                                 },
+                                 "bientity_action":{
+                                    "type":"origins:add_to_entity_set",
+                                    "set":"saturn:unlimited_void_mob_effects_set"
+                                 }
+                              },
+                              "ticks":1
+                           },
+                           {
+                              "type":"origins:delay",
+                              "action":{
                                  "type":"origins:execute_command",
                                  "command":"execute in saturn:unlimited_void positioned as @s run teleport ~0.5 3 8.5"
                               },
-                              "ticks":1
+                              "ticks":2
                            }
                         ]
                      }
@@ -274,9 +306,9 @@
                   "y":8.00,
                   "z":8.00
                },
-               "offset_x": 0.00,
+               "offset_x":0.00,
                "offset_y":0.50,
-               "offset_z": 0.00
+               "offset_z":0.00
             },
             {
                "type":"origins:apply_effect",

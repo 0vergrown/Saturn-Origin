@@ -1,6 +1,37 @@
 {
    "type":"origins:multiple",
-   "conditioned_attribute_in_dimension":{
+   "set":{
+      "type":"origins:entity_set",
+      "action_on_remove":{
+         "type": "origins:and",
+         "actions": [
+             {
+               "type": "origins:actor_action",
+               "action": {
+                  "type":"origins:delay",
+                  "action":{
+                     "type":"origins:revoke_power",
+                     "power":"saturn:unlimited_void_mob_effects",
+                     "source":"saturn:unlimited_void_mob_effects"
+                  },
+                  "ticks":4
+               }
+             },
+             {    
+               "type":"origins:target_action",
+               "action":{
+                  "type":"origins:delay",
+                  "action":{
+                     "type":"origins:execute_command",
+                     "command":"kill @s"
+                  },
+                  "ticks":3
+               }
+             }
+         ]
+      }
+   },
+   "conditioned_attribute":{
       "type":"origins:conditioned_attribute",
       "modifiers":[
          {
@@ -62,96 +93,6 @@
                   "volume":1.00,
                   "pitch":0.50
                },
-               "ticks":1200
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:entity.experience_orb.pickup",
-                  "volume":1.00,
-                  "pitch":0.50
-               },
-               "ticks":25
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:entity.experience_orb.pickup",
-                  "volume":1.00,
-                  "pitch":0.50
-               },
-               "ticks":30
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:entity.experience_orb.pickup",
-                  "volume":1.00,
-                  "pitch":0.50
-               },
-               "ticks":35
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:entity.experience_orb.pickup",
-                  "volume":1.00,
-                  "pitch":0.50
-               },
-               "ticks":45
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:entity.experience_orb.pickup",
-                  "volume":1.00,
-                  "pitch":0.50
-               },
-               "ticks":65
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:entity.experience_orb.pickup",
-                  "volume":1.00,
-                  "pitch":0.50
-               },
-               "ticks":85
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:entity.experience_orb.pickup",
-                  "volume":1.00,
-                  "pitch":0.50
-               },
-               "ticks":115
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:entity.experience_orb.pickup",
-                  "volume":1.00,
-                  "pitch":0.50
-               },
-               "ticks":150
-            },
-            {
-               "type":"origins:delay",
-               "action":{
-                  "type":"origins:play_sound",
-                  "sound":"minecraft:entity.experience_orb.pickup",
-                  "volume":1.00,
-                  "pitch":0.50
-               },
                "ticks":200
             },
             {
@@ -177,7 +118,7 @@
                      },
                      {
                         "type":"origins:action_on_entity_set",
-                        "set":"saturn:unlimited_void_set",
+                        "set":"saturn:unlimited_void_mob_effects_set",
                         "bientity_action":{
                            "type":"origins:and",
                            "actions":[
@@ -227,6 +168,22 @@
       "condition":{
          "type":"origins:dimension",
          "dimension":"saturn:unlimited_void"
+      }
+   },
+   "remove_gates_on_death":{
+      "type":"origins:action_on_death",
+      "bientity_action":{
+         "type":"origins:target_action",
+         "action":{
+            "type":"origins:action_on_entity_set",
+            "set":"saturn:unlimited_void_mob_effects_set",
+            "bientity_action":{
+               "type":"origins:remove_from_entity_set",
+               "set":"saturn:unlimited_void_mob_effects_set"
+            },
+            "limit":1,
+            "reverse":false
+         }
       }
    }
 }
