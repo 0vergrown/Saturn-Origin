@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/0vergrown/Saturn-Origin/heads/main/pack.png" alt="Saturn Origin (Cover)"/>
+  <img src="https://raw.githubusercontent.com/0vergrown/Saturn-Origin/refs/heads/main/pack.png" alt="Saturn Origin (Cover)"/>
 </p>
 
 # 🪐 Saturn Origin 🪐
