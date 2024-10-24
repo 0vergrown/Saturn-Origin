@@ -15,6 +15,8 @@
 **Description**: A deity born with both the limitless and six eyes, his overwhelming power forming a god complex and suffers because of it.
 
 *Positive* 🟢:
+- **Limitless**: The Limitless technique operates the same way convergent and divergent sequences do in mathematics. The Infinity is the convergence of an immeasurable series, anything that approaches the infinity slows down and never reaches the user. This is because the technique takes the finite amount of space between the two subjects and divides it an infinite amount of times.
+   - Destroys any and all projectiles, including tridents.
 - **Black Flash**: A distortion in space that occurs when cursed energy is applied with 0.000001 seconds of a physical hit. Causing the caster to dash instantly to the target dealing damage while sending them into the air from which can be followed up by a second hit, dashing the caster up to the target in the air dealing additional damage, and can be turned into a full combo if the caster lands the final hit while in the air, the target gets smashed down into the ground taking additional damage. Landing the full combo reduces the cool down period by 75%. (Primary)
 - **Cursed Technique**: Lapse Blue. The strengthened Limitless increases cursed energy to bring the concepts of "negative numbers" and "negative distance" into reality. Doing so forces the area to fill in the negative space by drawing everything toward the impossibility, generating a force of attraction, similar to a black hole. (Load Toolbar Activator)
     - Pulls entities within a 15 block radius into the casted area, dealing 2.5 hearts per 2 seconds for a total of 8 seconds.
