@@ -290,7 +290,7 @@
                                        "id":"minecraft:slowness",
                                        "duration":60,
                                        "amplifier":5,
-                                       "is_ambient":false,
+                                       "ambient":false,
                                        "show_particles":false,
                                        "show_icon":false
                                     }
